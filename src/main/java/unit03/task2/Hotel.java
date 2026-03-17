@@ -20,6 +20,6 @@ public class Hotel {
     int noBeds;
 
     public String toCSV() {
-        return ""+id+","+name+","+owner+","+contact+","+address+","+city;
+        return id+","+name+","+owner+","+contact+","+address+","+city;
     }
 }
