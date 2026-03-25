@@ -31,6 +31,7 @@ public class SimpleWritingProcess {
         String adress = "output/backup.txt";
         Path path = Path.of(adress);
 
+
         ArrayList<String> SOME_DATA = new ArrayList<>();
 
         for (Hotel hotel : hotels) {
@@ -45,9 +46,10 @@ public class SimpleWritingProcess {
         JOptionPane.showMessageDialog(null, "file was written successfully");
 
        int answer =  JOptionPane.showConfirmDialog(null,"You wanna see the content?");
-        System.out.println(answer);
+       boolean allowedToOpen = Desktop.isDesktopSupported();
+        System.out.println("you answered: " + answer + " and you can open the file? " + allowedToOpen + "!");
 
-        if(answer == 1){
+        if(answer == 0 && Desktop.isDesktopSupported()) {
             Desktop.getDesktop().open(path.toFile());
         }
     }
