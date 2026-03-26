@@ -1,9 +1,7 @@
-package unit04;
+package unit04.sorting;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @AllArgsConstructor
 @Data
