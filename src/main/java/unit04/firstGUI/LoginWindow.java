@@ -14,6 +14,7 @@ public class LoginWindow extends JFrame {
     setLayout(new BorderLayout()); // default is BorderLayout
 
     JButton button = new JButton("Login");
+
     JTextField tf_username = new JTextField();
     JPasswordField tf_password = new JPasswordField();
 
@@ -30,7 +31,20 @@ public class LoginWindow extends JFrame {
     add(button, BorderLayout.SOUTH);
 
 
-    button.addActionListener(e -> System.out.println("Login"));
+    button.addActionListener(e -> {
+      String username = tf_username.getText();
+
+      if(username.isBlank() ){
+          JOptionPane.showMessageDialog(this, "Please enter a username");
+          return;
+      }
+
+        tf_username.setText("");
+
+      JOptionPane.showMessageDialog(this, "Login Successful Mr." + username);
+    });
+
+
 
 
 
