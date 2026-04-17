@@ -3,9 +3,9 @@ package unit04.sorting;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MainSortingStudent {
+public class StudentSortingMain {
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Student s1 = new Student(4, "Michael", 33, 2d);
         Student s2 = new Student(2, "Michael", 13, 2d);
         Student s3 = new Student(9, "Michael", 23, 4);
