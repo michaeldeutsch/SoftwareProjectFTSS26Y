@@ -3,32 +3,27 @@ package unit04.sorting;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+/**
+ * Data model for a Student that implements Comparable.
+ * This allows students to be sorted automatically using Collections.sort().
+ */
 @AllArgsConstructor
 @Data
 public class Student implements Comparable<Student> {
 
-    int id;
-    String name;
-    int age;
-    double avgGrade;
+    private int id;
+    private String name;
+    private int age;
+    private double avgGrade;
 
+    /**
+     * Comparison logic for sorting students.
+     * Currently sorted by average grade in ascending order.
+     * @param o the student to compare against
+     * @return comparison result (negative if this is smaller, positive if larger)
+     */
     @Override
     public int compareTo(Student o) {
-        if(this.avgGrade > o.avgGrade) {
-            return 1;        }
-
-
-        return 0;
+        return Double.compare(this.avgGrade, o.avgGrade);
     }
-
-
- //   @Override
-//    public int compareTo(Student o) {
-////        if(this.age == o.age){
-////            return this.id - o.id;
-////        } else   {
-////            return this.age - o.age;
-////        }
-////
-////    }
 }

@@ -7,30 +7,29 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Utility class for loading hotel data from files.
+ * Demonstrates parsing CSV-like data into Java objects.
+ */
 public class HotelUtility {
 
-    static void main() throws FileNotFoundException {
-        // online for internal testing purposes - delete (main) in production
-        optimizedLoadHotelsFromFile().forEach(System.out::println);
-
-    }
-
-
+    /**
+     * Loads hotels from the local file system using a hardcoded path.
+     * @return List of parsed Hotel objects
+     * @throws FileNotFoundException if the file is not found
+     */
     public static ArrayList<Hotel> loadHotelsFromFile() throws FileNotFoundException {
         ArrayList<Hotel> ALL_HOTELS = new ArrayList<Hotel>();
         String path = "src/main/resources/hotels.txt";
 
         Scanner sc = new Scanner(new File(path));
+        // Skip header line
         sc.nextLine();
 
         while(sc.hasNextLine()) {
 
             String [] parts =  sc.nextLine().split(",");
-            //System.out.println(Arrays.toString(parts));
-            // id,category,name,owner,contact,address,city,cityCode,phone,noRooms,noBeds
-
-            //System.out.println(parts[2].replaceAll("\"",""));
-
+            // Map CSV columns to Hotel object properties, removing quotes for cleanup
             int id = Integer.parseInt(parts[0]);
             String category = parts[1].replaceAll("\"","");
             String name = parts[2].replaceAll("\"","");
@@ -43,16 +42,17 @@ public class HotelUtility {
             int noRooms = Integer.parseInt(parts[9].replaceAll("\"",""));
             int noBeds = Integer.parseInt(parts[10].replaceAll("\"",""));
 
-
-            // id,category,name,owner,contact,address,city,cityCode,phone,noRooms,noBeds
-
             Hotel temp = new Hotel(id,category,name,owner,contact,address,city,cityCode,state,noRooms,noBeds);
             ALL_HOTELS.add(temp);
         }
         return ALL_HOTELS;
     }
 
-
+    /**
+     * Loads hotels from the classpath, which is more robust for deployed applications.
+     * @return List of parsed Hotel objects
+     * @throws FileNotFoundException if the resource is missing
+     */
     public static ArrayList<Hotel> optimizedLoadHotelsFromFile() throws FileNotFoundException {
         ArrayList<Hotel> ALL_HOTELS = new ArrayList<Hotel>();
         InputStream is = HotelUtility.class
@@ -66,11 +66,6 @@ public class HotelUtility {
         while(sc.hasNextLine()) {
 
             String [] parts =  sc.nextLine().split(",");
-            //System.out.println(Arrays.toString(parts));
-            // id,category,name,owner,contact,address,city,cityCode,phone,noRooms,noBeds
-
-            //System.out.println(parts[2].replaceAll("\"",""));
-
             int id = Integer.parseInt(parts[0]);
             String category = parts[1].replaceAll("\"","");
             String name = parts[2].replaceAll("\"","");
@@ -82,9 +77,6 @@ public class HotelUtility {
             String state = parts[8].replaceAll("\"","");
             int noRooms = Integer.parseInt(parts[9].replaceAll("\"",""));
             int noBeds = Integer.parseInt(parts[10].replaceAll("\"",""));
-
-
-            // id,category,name,owner,contact,address,city,cityCode,phone,noRooms,noBeds
 
             Hotel temp = new Hotel(id,category,name,owner,contact,address,city,cityCode,state,noRooms,noBeds);
             ALL_HOTELS.add(temp);

@@ -1,4 +1,4 @@
-package unit05.gui;
+package unit05.hashIntro;
 
 /**
  * Basic example demonstrating the concept of Hashing in Java.
