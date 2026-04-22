@@ -37,9 +37,13 @@ src
      │   │   ├─ collections    # List, Set, Map usage
      │   │   ├─ gui_basics     # Introduction to Swing (Login, Windows)
      │   │   └─ sorting        # Comparable interface & Sorting
-     │   └─ unit05             # Advanced GUI & Tables
-     │       ├─ gui_advanced   # Extended GUI (Admin area, Hashing)
-     │       └─ gui_table      # JTable implementation & Layouts
+     │   ├─ unit05             # Advanced GUI & Tables
+     │   │   ├─ gui_advanced   # Extended GUI (Admin area, Hashing)
+     │   │   └─ gui_table      # JTable implementation & Layouts
+     │   ├─ unit06             # JTable Events & Data Transfer
+     │   │   ├─ MainTable.java      # Application Entry Point
+     │   │   ├─ BasicTableDemo.java # JTable and MouseListener
+     │   │   └─ EditHotel.java      # JDialog for Data Display
      └─ resources              # Data files (hotels.txt, names.txt)
 pom.xml                        # Maven Configuration (Lombok, etc.)
 ```
@@ -71,6 +75,10 @@ The current examples cover the setup and core concepts of software development:
     - Layout management (BorderLayout, GridLayout)
     - Role-based window control (Admin, Senior, Junior)
     - Password hashing
+- **Unit 06: GUI Interaction & Data Transfer**
+    - Handling mouse events on `JTable` (Double-click)
+    - Passing data between windows (`JFrame` to `JDialog`)
+    - Modal dialogs and structured layouts in Swing
 
 ---
 
@@ -97,6 +105,7 @@ Competencies acquired after each unit:
 | **03** | File I/O & ETL    | Efficiently read/write files, parse structured data (CSV) into object models.                      |
 | **04** | Data & Logic      | Choose appropriate collections, implement sorting, build basic GUI windows.                        |
 | **05** | Advanced GUI      | Create complex interactive UIs with tables, structured layouts, and role-based logic.              |
+| **06** | GUI Interaction   | Handle table events and implement data transfer between different GUI components.                   |
 
 ---
 
@@ -127,6 +136,11 @@ Detailed overview of the covered examples and concepts.
 - **AdminWindow / SeniorWindow / JuniorWindow (gui_advanced)**: Role-specific views after login.
 - **TableDemoWindow (gui_table)**: Implementation of dynamic tables using `JTable`.
 - **TableApplicationMain (gui_table)**: Starting and managing GUI applications with table components.
+
+### Unit 06: GUI Interaction & Data Transfer
+- **MainTable**: Application entry point demonstrating the event dispatch thread.
+- **BasicTableDemo**: Advanced `JTable` usage with custom `MouseListener` for row selection.
+- **EditHotel**: Modal `JDialog` that displays data passed from the main table.
 
 ---
 
