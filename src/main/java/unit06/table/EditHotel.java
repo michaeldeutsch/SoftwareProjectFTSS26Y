@@ -21,9 +21,6 @@ public class EditHotel extends JDialog {
         initComponents(data);
     }
 
-    /**
-     * Configures the dialog's basic properties.
-     */
     private void defineDialog() {
         setSize(400, 300);
         setLocationRelativeTo(getOwner());

@@ -7,10 +7,6 @@ package unit06.table;
  */
 public class MainTable {
 
-    /**
-     * Starts the BasicTableDemo application.
-     * @param args command line arguments (not used)
-     */
     public static void main(String[] args) {
         // Run the GUI on the Event Dispatch Thread for thread safety
         javax.swing.SwingUtilities.invokeLater(() -> {
