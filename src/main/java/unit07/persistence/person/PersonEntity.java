@@ -1,4 +1,4 @@
-package unit07.db.crud.intro;
+package unit07.persistence.person;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,23 +7,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-//@Table(name = "person")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Person {
+public class PersonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "vorname", nullable = false, length = 100)
-    private String vorname;
+    @Column(name = "first_name", nullable = false, length = 100)
+    private String firstName;
 
-    @Column(name = "nachname", nullable = false, length = 100)
-    private String nachname;
+    @Column(name = "last_name", nullable = false, length = 100)
+    private String lastName;
 
     @Column(name = "email", unique = true, length = 150)
     private String email;

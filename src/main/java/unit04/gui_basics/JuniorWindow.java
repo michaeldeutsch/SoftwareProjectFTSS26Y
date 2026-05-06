@@ -16,7 +16,7 @@ public class JuniorWindow extends JFrame {
     }
     
     public JuniorWindow() {
-        setTitle("Junior-Stage");
+        setTitle("Junior-UserRole");
         setSize(300, 200);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE); // Using DISPOSE_ON_CLOSE for secondary windows
         setLocationRelativeTo(null);

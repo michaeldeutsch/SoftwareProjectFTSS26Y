@@ -16,7 +16,7 @@ public class SeniorWindow extends JFrame {
     }
     
     public SeniorWindow() {
-        setTitle("Senior-Stage");
+        setTitle("Senior-UserRole");
         setSize(300, 200);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE); // Using DISPOSE_ON_CLOSE for secondary windows
         setLocationRelativeTo(null);

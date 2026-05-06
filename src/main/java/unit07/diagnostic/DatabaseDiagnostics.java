@@ -1,4 +1,4 @@
-package unit07.db.trial;
+package unit07.diagnostic;
 
 import java.sql.*;
 
@@ -57,7 +57,7 @@ public class DatabaseDiagnostics {
                 System.out.println("Treibername      : " + meta.getDriverName());
                 System.out.println("Treiberversion   : " + meta.getDriverVersion());
                 System.out.println("URL              : " + meta.getURL());
-                System.out.println("Benutzer         : " + meta.getUserName());
+                System.out.println("UserEntity         : " + meta.getUserName());
                 System.out.println("Katalog          : " + con.getCatalog());
                 System.out.println("AutoCommit       : " + con.getAutoCommit());
                 System.out.println("ReadOnly         : " + con.isReadOnly());

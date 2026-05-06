@@ -1,4 +1,4 @@
-package unit07.db.trial;
+package unit07.diagnostic;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,9 +9,7 @@ public class ConnectionCheckLight {
 
     public static void main(String[] args) {
         checkDatabase();
-
     }
-
 
     public static void checkDatabase() {
         String url = "jdbc:sqlserver://185.119.119.126:1433;databaseName=SP_DEUTSCH;encrypt=true;trustServerCertificate=true";
@@ -19,15 +17,14 @@ public class ConnectionCheckLight {
         String password = "johndoe";
 
         try (Connection con = DriverManager.getConnection(url, user, password)) {
-            System.out.println("DB Verbindung OK");
+            System.out.println("Database connection OK");
 
             ResultSet rs = con.getMetaData().getTables(con.getCatalog(), null, "%", new String[]{"TABLE"});
             while (rs.next()) {
                 System.out.println(rs.getString("TABLE_SCHEM") + "." + rs.getString("TABLE_NAME"));
             }
-
         } catch (SQLException e) {
-            System.out.println("DB Verbindung fehlgeschlagen: " + e.getMessage());
+            System.out.println("Database connection failed: " + e.getMessage());
         }
     }
 }

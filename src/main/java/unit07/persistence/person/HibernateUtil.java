@@ -1,4 +1,4 @@
-package unit07.db.crud.intro;
+package unit07.persistence.person;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,22 +12,21 @@ public class HibernateUtil {
         System.setProperty("org.slf4j.simpleLogger.log.org.jboss", "off");
     }
 
-    private static final SessionFactory sessionFactory = buildSessionFactory();
+    private static final SessionFactory SESSION_FACTORY = buildSessionFactory();
 
     private static SessionFactory buildSessionFactory() {
-
         try {
             return new Configuration()
-                    .configure()               // load the config file
-                    .addAnnotatedClass(Person.class)  // register entity, add more if needed
+                    .configure()
+                    .addAnnotatedClass(PersonEntity.class)
                     .buildSessionFactory();
         } catch (Throwable ex) {
-            System.err.println("SessionFactory couldnt be created.");
+            System.err.println("SessionFactory couldn't be created.");
             throw new ExceptionInInitializerError(ex);
         }
     }
 
     public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+        return SESSION_FACTORY;
     }
 }

@@ -21,13 +21,13 @@
 
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <property name="hibernate.current_session_context_class">thread</property>
 
         <!-- Entity Mapping -->
-        <!-- <mapping class="com.example.model.Person"/> -->
-        <mapping class="unit07.db.crud.intro.Person"/>
+        <mapping class="unit07.persistence.person.PersonEntity"/>
+        <mapping class="unit07.persistence.user.UserEntity"/>
 
     </session-factory>
 </hibernate-configuration>
