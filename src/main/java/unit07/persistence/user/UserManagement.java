@@ -6,12 +6,14 @@ public class UserManagement {
         UserDao dao = new UserDao(HibernateUtil.getSessionFactory());
 
         logSection("CREATE");
+
         UserEntity adminUser = UserEntity.builder()
                 .userId("admin")
                 .password("secret")
                 .role(UserRole.MASTER)
                 .build();
         dao.save(adminUser);
+
         System.out.println("Saved: " + adminUser);
 
         logSection("GET BY ID");
@@ -31,6 +33,29 @@ public class UserManagement {
 
         logSection("GET ALL AFTER DELETE");
         dao.findAll().forEach(System.out::println);
+
+        logSection("LOGIN TEST");
+        // Re-create user for login test
+        UserEntity testUser = UserEntity.builder()
+                .userId("testuser")
+                .password("password123")
+                .role(UserRole.NOVICE)
+                .build();
+        dao.save(testUser);
+
+        System.out.println("Login attempt with correct credentials...");
+        dao.login("testuser", "password123").ifPresentOrElse(
+                user -> System.out.println("Login successful: " + user),
+                () -> System.out.println("Login failed!")
+        );
+
+        System.out.println("Login attempt with wrong password...");
+        dao.login("testuser", "wrongpass").ifPresentOrElse(
+                user -> System.out.println("Login successful: " + user),
+                () -> System.out.println("Login failed! (Expected)")
+        );
+
+        dao.delete("testuser");
 
         HibernateUtil.getSessionFactory().close();
     }

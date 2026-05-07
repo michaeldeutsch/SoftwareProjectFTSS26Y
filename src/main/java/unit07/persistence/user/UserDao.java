@@ -52,4 +52,23 @@ public class UserDao {
             tx.commit();
         }
     }
+
+    public Optional<UserEntity> login(String username, String password) {
+        try (Session session = sessionFactory.openSession()) {
+            String hql = "from UserEntity where userId = :username and password = :password";
+            UserEntity user = session.createQuery(hql, UserEntity.class)
+                    .setParameter("username", username)
+                    .setParameter("password", password)
+                    .uniqueResult();
+
+            if (user != null) {
+                // Return a copy without the password for security/navigation purposes
+                return Optional.of(UserEntity.builder()
+                        .userId(user.getUserId())
+                        .role(user.getRole())
+                        .build());
+            }
+            return Optional.empty();
+        }
+    }
 }
